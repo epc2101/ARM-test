@@ -1,0 +1,16 @@
+{
+
+    "siteName": {
+        "type": "string",
+        "Value": "MySite"
+    },
+    "hostingPlanName": {
+        "type": "string",
+        "Value": "MyPlanName"
+    },
+    "siteLocation": {
+        "type": "string",
+        "Value": "East US"
+    }
+    
+}
