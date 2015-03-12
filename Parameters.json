@@ -2,7 +2,7 @@
 
     "siteName": {
         "type": "string",
-        "Value": "MySite"
+        "Value": "MySite123abcd"
     },
     "hostingPlanName": {
         "type": "string",
