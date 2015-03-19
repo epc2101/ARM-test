@@ -2,7 +2,7 @@
 
     "siteName": {
         "type": "string",
-        "Value": "MySite"
+        "Value": "TestSite123"
     },
     "hostingPlanName": {
         "type": "string",
@@ -11,6 +11,14 @@
     "siteLocation": {
         "type": "string",
         "Value": "East US"
+    },
+    "repoUrl": {
+        "type": "string",
+        "Value": "https://github.com/epc2101/HelloWorldWebsite"
+    },
+    "branch": {
+        "type": "string",
+        "Value": "master"
     }
     
 }
