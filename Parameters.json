@@ -1,8 +1,7 @@
 {
-
     "siteName": {
         "type": "string",
-        "Value": "TestSite123"
+        "Value": "MySite123abcd12"
     },
     "hostingPlanName": {
         "type": "string",
@@ -19,6 +18,6 @@
     "branch": {
         "type": "string",
         "Value": "master"
-    }
-    
+    }   
 }
+s
