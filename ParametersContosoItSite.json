@@ -1,0 +1,22 @@
+{
+    "siteName": {
+        "type": "string",
+        "Value": "ContosoITRequestSite"
+    },
+    "hostingPlanName": {
+        "type": "string",
+        "Value": "Default1"
+    },
+    "siteLocation": {
+        "type": "string",
+        "Value": "East US"
+    },
+    "repoUrl": {
+        "type": "string",
+        "Value": "https://github.com/epc2101/ContosoITRequestSite"
+    },
+    "branch": {
+        "type": "string",
+        "Value": "master"
+    }   
+}
