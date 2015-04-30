@@ -5,7 +5,7 @@
     },
     "hostingPlanName": {
         "type": "string",
-        "Value": "Default1"
+        "Value": "MyPlanName"
     },
     "siteLocation": {
         "type": "string",
