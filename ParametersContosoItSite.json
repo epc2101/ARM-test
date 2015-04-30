@@ -1,7 +1,7 @@
 {
     "siteName": {
         "type": "string",
-        "Value": "ContosoITRequestSite1"
+        "Value": "ContosoITRequestSite01"
     },
     "hostingPlanName": {
         "type": "string",
