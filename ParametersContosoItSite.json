@@ -13,7 +13,7 @@
     },
     "repoUrl": {
         "type": "string",
-        "Value": "https://github.com/epc2101/ContosoITRequestSite"
+        "Value": "https://github.com/csandcsand/ContosoITRequestSite"
     },
     "branch": {
         "type": "string",
