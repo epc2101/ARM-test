@@ -20,7 +20,7 @@ $Params = @{"accountName" = $AccountName ;
 	"password" = "MyPassword";
 	"credentialDescription" = "Description" 
 }
-$TemplateURI = "https://github.com/epc2101/ARM-test/blob/master/TutorialDeployementTest/deployAutomationResources.json"
+$TemplateURI = "https://raw.githubusercontent.com/epc2101/ARM-test/master/TutorialDeployementTest/deployAutomationResources.json"
 
 New-AzureResourceGroupDeployment -TemplateParameterObject $Params -ResourceGroupName "bethgroup1" -TemplateUri $TemplateURI
  
