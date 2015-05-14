@@ -1,7 +1,7 @@
 {
     "siteName": {
         "type": "string",
-        "Value": "MySite123abcd12"
+        "Value": "ContosoITRequestSite001"
     },
     "hostingPlanName": {
         "type": "string",
@@ -13,7 +13,7 @@
     },
     "repoUrl": {
         "type": "string",
-        "Value": "https://github.com/epc2101/HelloWorldWebsite"
+        "Value": "https://github.com/csandcsand/ContosoITRequestSite"
     },
     "branch": {
         "type": "string",
