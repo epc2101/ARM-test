@@ -13,15 +13,15 @@ $Params = @{"accountName" = $AccountName ;
     "JobName" = $JobGUID;
     "regionId" = "Japan East";
 	"runbookName" = "Get-AzureVMTutorial";
-    "scriptCenterUri"= "http://eus2oaasibizamarketprod1.blob.core.windows.net/marketplace-runbooks/Get-AzureVMTutorial.ps1";
+    "scriptUri"= "https://raw.githubusercontent.com/epc2101/ARM-test/master/TutorialDeployementTest/Get-AzureVMTutorial.ps1";
     "runbookDescription" =  "Description";
     "credentialName" = "BethsNonworkingCred";
 	"userName" = "MyFakeUsername"; 
 	"password" = "MyPassword";
 	"credentialDescription" = "Description" 
 }
-$Path = "C:\Users\elcooper\Documents\AccountPlusCred.json"
+$TemplateURI = "https://github.com/epc2101/ARM-test/blob/master/TutorialDeployementTest/deployAutomationResources.json"
 
-New-AzureResourceGroupDeployment -TemplateParameterObject $Params -ResourceGroupName "bethgroup1" -TemplateFile $Path
+New-AzureResourceGroupDeployment -TemplateParameterObject $Params -ResourceGroupName "bethgroup1" -TemplateUri $TemplateURI
  
 

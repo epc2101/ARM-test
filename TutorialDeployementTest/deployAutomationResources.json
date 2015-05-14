@@ -1,52 +1,55 @@
 {
-     "$schema": "http://schemas.microsoft.org/azure/deploymentTemplate?api-version=2015-01-01#",
-     "contentVersion": "1.0",
-     "parameters" : {
-        "accountName" : { "type" : "string" },
-        "location" : { "type" : "string" },
+    "$schema": "http://schemas.microsoft.org/azure/deploymentTemplate?api-version=2015-01-01-preview#",
+    "contentVersion": "1.0",
+    "parameters": {
+        "accountName": { "type": "string" },
+        "regionId": { "type": "string" },
+        "runbookName": { "type": "string" },
+        "scriptUri": { "type": "string" },
+        "runbookDescription": { "type": "string" },
         "credentialName": { "type": "string" },
-		"JobName":  {"type": "string"}
-     },
-     "variables": {
-     },
+        "userName": { "type": "string" },
+        "password": { "type": "string" },
+        "credentialDescription": { "type": "string" },
+        "jobName": { "type": "string" }
+    },
+    "variables": {
+        "sku": "Free"
+    },
      "resources": [
          {
              "name": "[parameters('accountName')]",
              "type": "Microsoft.Automation/automationAccounts",
              "apiVersion": "2015-01-01-preview",
-             "location": "[parameters('location')]",
+             "location": "[parameters('regionId')]",
              "dependsOn": [
              ],
              "tags": {
-                 "key": "value"
              },
              "properties": {
-                 "comment": "Resource defined structure",
-                 "sku":
-                 {
-                     "name": "Free"
+                 "sku": {
+                     "name": "[variables('sku')]"
                  }
              },
              "resources": [
                 {
-                     "name": "Get-AzureVMTutorial",
+                     "name": "[parameters('runbookName')]",
                      "type": "runbooks",
                      "apiVersion": "2015-01-01-preview",
-                     "location": "[parameters('location')]",
+                     "location": "[parameters('regionId')]",
                      "dependsOn": [
                         "[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'))]"
                      ],
                      "tags": {
-                         "key": "value"
                      },
                      "properties": {
                         "runbookType": "Script",
                         "logProgress": "false",
                         "logVerbose": "false",
-                        "description": "Tutorial runbook",
+                        "description": "[parameters('runbookDescription')]",
                         "publishContentLink":
                         {
-                            "uri": "http://eus2oaasibizamarketprod1.blob.core.windows.net/marketplace-runbooks/Get-AzureVMTutorial.ps1",
+                            "uri": "[parameters('scriptUri')]",
                             "version": "1.0.0.0"
                         }
                      }
@@ -55,39 +58,38 @@
                     "name": "[parameters('credentialName')]",
                     "type": "credentials",
                     "apiVersion": "2015-01-01-preview",
-                    "location": "[parameters('location')]",
+                    "location": "[parameters('regionId')]",
                     "dependsOn": [
                         "[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'))]"
                     ],
                     "tags": {
-                        "key": "value"
                     },
                     "properties": {
-                        "userName": "MyADUser.onmicrosoft.com",
-                        "password": "MyADPassword",
-                        "description": "Cred description"
+                        "userName": "[parameters('userName')]",
+                        "password": "[parameters('password')]",
+                        "description": "[parameters('credentialDescription')]"
                     }
-                }
-				,
+                },
                 {
-                "name": "[parameters('JobName')]",
-                "type": "jobs",
-                "apiVersion": "2015-01-01-preview",
-                "location": "[parameters('location')]",
-                "dependsOn": [
-					"[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'))]",
-					"[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'), '/runbooks/Get-AzureVMTutorial')]"
-                ],
-                "tags": {
-					"key": "value"
-                 },
-                 "properties": {
-                 "runbook": {
-					"name": "Get-AzureVMTutorial"
-                  }
-                  }
+                    "name": "[parameters('JobName')]",
+                    "type": "jobs",
+                    "apiVersion": "2015-01-01-preview",
+                    "location": "[parameters('regionId')]",
+                    "dependsOn": [
+					    "[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'))]",
+					    "[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'), '/runbooks/',parameters('runbookName'))]"
+                    ],
+                    "tags": {
+					    "key": "value"
+                     },
+                     "properties": {
+                         "runbook": {
+					        "name": "[parameters('runbookName')]"
+                          }
+                      }
                  }
-             ]
+
+			 ]
          }
      ],
      "outputs": {
